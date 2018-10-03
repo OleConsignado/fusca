@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="Refit" Version="4.6.30" />
+    <PackageReference Include="Otc.Caching.Abstractions" Version="1.0.0" />
+    <PackageReference Include="Otc.Networking.Http.Client.Abstractions" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fusca.Domain\Fusca.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

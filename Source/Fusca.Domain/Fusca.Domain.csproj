@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Adapters\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;1591</NoWarn>
+    <DocumentationFile>bin\Release\netstandard2.0\Fusca.Domain.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1591</NoWarn>
+    <DocumentationFile>bin\Debug\netstandard2.0\Fusca.Domain.xml</DocumentationFile>
+  </PropertyGroup>  
+  
+  <ItemGroup>
+    <PackageReference Include="Ole.OpenApi.AuthorizationDataModel" Version="1.0.10517-CI-20181002-212753" />
+    <PackageReference Include="Otc.ComponentModel.Annotations" Version="1.0.1" />
+    <PackageReference Include="Otc.DomainBase.Exceptions" Version="2.0.0" />
+  </ItemGroup>  
+  
+</Project>
