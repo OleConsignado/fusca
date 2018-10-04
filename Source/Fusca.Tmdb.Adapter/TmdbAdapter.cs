@@ -35,7 +35,7 @@ namespace Fusca.Tmdb.Adapter
 
                 if(!typedCache.TryGet(cacheKey, out TmdbDiscoverResult tmdbDiscoverResult))
                 {
-                    tmdbDiscoverResult = await tmdbApi.GetUpcommingMoviesAsync(query, tmdbAdapterConfiguration.TmdbApiKey);
+                    tmdbDiscoverResult = await tmdbApi.GetUpcommingMoviesAsync(query, tmdbAdapterConfiguration.TmdbApiKey, tmdbAdapterConfiguration.Idioma);
                     typedCache.Set(cacheKey, tmdbDiscoverResult, TimeSpan.FromSeconds(tmdbAdapterConfiguration.TempoDeCacheDaPesquisaEmSegundos));
                 }
 

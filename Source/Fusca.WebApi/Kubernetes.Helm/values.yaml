@@ -29,6 +29,7 @@ Serilog__MinimumLevel__Override__Otc: Information
 TmdbAdapterConfiguration__TmdbApiUrlBase: "https://api.themoviedb.org/3"
 TmdbAdapterConfiguration__TmdbApiKey: "1f54bd990f1cdfb230adb312546d765d"
 TmdbAdapterConfiguration__TempoDeCacheDaPesquisaEmSegundos: 30
+TmdbAdapterConfiguration__Idioma: "pt-BR"
 
 # DB
 # strings de conexao com banco de dados

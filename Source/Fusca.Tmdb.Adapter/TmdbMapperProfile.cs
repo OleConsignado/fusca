@@ -9,8 +9,10 @@ namespace Fusca.Tmdb.Adapter
         public TmdbMapperProfile()
         {
             CreateMap<TmdbDiscoverResult.ResultItem, GetFilmesResult>()
-                // Mapeia a propriedade TmdbMovieResult.Overview para GetMoviesResult.Description.
-                .ForMember(d => d.Descricao, opt => opt.MapFrom(s => s.Overview));
+                // Mapeia a propriedade TmdbMovieResult.Overview para GetMoviesResult.Descricao.
+                .ForMember(destino => destino.Descricao, opt => opt.MapFrom(origem => origem.Overview))
+                // TmdbMovieResult.Title -> GetMoviesResult.Nome
+                .ForMember(destino => destino.Nome, opt => opt.MapFrom(origem => origem.Title));
         }
     }
 }

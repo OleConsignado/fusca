@@ -20,6 +20,13 @@ namespace Fusca.WebApi.Controllers
             this.tmdbAdapter = tmdbAdapter ?? throw new ArgumentNullException(nameof(tmdbAdapter));
         }
 
+        /// <summary>
+        /// Pesquisa por filmes.
+        /// </summary>
+        /// <param name="pesquisa">Termo a ser pesquisado.</param>
+        /// <response code="200">Lista de resultados.</response>
+        /// <response code="400">Parametros incorretos ou limite de utilização excedido.</response>
+        /// <response code="500">Erro interno.</response>
         [HttpGet, AllowAnonymous]
         [ProducesResponseType(typeof(GetFilmesResult), 200)]
         [ProducesResponseType(typeof(BuscarFilmesCoreException), 400)]

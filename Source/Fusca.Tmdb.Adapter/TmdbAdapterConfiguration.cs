@@ -6,10 +6,9 @@ namespace Fusca.Tmdb.Adapter
     {
         [Required]
         public string TmdbApiUrlBase { get; set; }
-
         [Required]
         public string TmdbApiKey { get; set; }
-
-        public int TempoDeCacheDaPesquisaEmSegundos { get; set; } = 3600;
+        public int TempoDeCacheDaPesquisaEmSegundos { get; set; } = 20;
+        public string Idioma { get; set; } = "pt-BR";
     }
 }

@@ -40,6 +40,7 @@ data:
   TmdbAdapterConfiguration__TmdbApiUrlBase: "{{ .Values.TmdbAdapterConfiguration__TmdbApiUrlBase }}"
   TmdbAdapterConfiguration__TmdbApiKey: "{{ .Values.TmdbAdapterConfiguration__TmdbApiKey }}"
   TmdbAdapterConfiguration__TempoDeCacheDaPesquisaEmSegundos: "{{ .Values.TmdbAdapterConfiguration__TempoDeCacheDaPesquisaEmSegundos }}"
+  TmdbAdapterConfiguration__Idioma: "{{ .Values.TmdbAdapterConfiguration__Idioma }}"
 
   # DB
   # strings de conexao com banco de dados
