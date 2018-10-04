@@ -4,20 +4,13 @@ using Otc.AspNetCore.ApiBoot;
 
 namespace Fusca.WebApi.Tests
 {
-    public class TestsStartup : ApiBootStartup
+    public class TestsStartup : Startup
     {
         public TestsStartup(IConfiguration configuration)
             : base(configuration)
         {
 
         }
-
-        protected override ApiMetadata ApiMetadata => new ApiMetadata()
-        {
-            Name = "Documentos do Olé Open API",
-            Description = "API de documentos para acesso às Open APIs do Olé",
-            DefaultApiVersion = "1.0"
-        };
 
         protected override void ConfigureApiServices(IServiceCollection services)
         {

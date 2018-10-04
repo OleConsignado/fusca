@@ -14,6 +14,7 @@ namespace Fusca.Tmdb.Adapter.Adaptee
         [Get("/search/movie")]
         Task<TmdbDiscoverResult> GetUpcommingMoviesAsync(
             [Query] string query,
-            [Query, AliasAs("api_key")] string apiKey);
+            [Query, AliasAs("api_key")] string apiKey,
+            [Query] string language);
     }
 }

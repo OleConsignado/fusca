@@ -1,7 +1,4 @@
 ﻿using Otc.DomainBase.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Fusca.Domain.Exceptions
 {
@@ -15,10 +12,10 @@ namespace Fusca.Domain.Exceptions
 
     public class BuscarFilmesCoreError : CoreError
     {
-        public static readonly BuscarFilmesCoreError LimiteDeRequisicoesAtingido =
+        public static BuscarFilmesCoreError LimiteDeRequisicoesAtingido =>
             new BuscarFilmesCoreError("LimiteDeRequisicoesAtingido", "O limite de requisições ao provedor de filmes foi atingido, tente novamente mais tarde.");
 
-        public static readonly BuscarFilmesCoreError ParametrosIncorretos =
+        public static BuscarFilmesCoreError ParametrosIncorretos =>
             new BuscarFilmesCoreError("ParametrosIncorretos", "Os parametros estao incorretos, verifique e tente novamente.");
 
 

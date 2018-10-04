@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Fusca.Tmdb.Adapter;
 using Otc.AspNetCore.ApiBoot;
 using Otc.Extensions.Configuration;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Fusca.WebApi
 {
@@ -11,8 +12,8 @@ namespace Fusca.WebApi
     {
         protected override ApiMetadata ApiMetadata => new ApiMetadata()
         {
-            Name = "Documentos do Olé Open API",
-            Description = "API de documentos para acesso às Open APIs do Olé",
+            Name = "Fusca",
+            Description = "API de exemplo (Olé Consignado).",
             DefaultApiVersion = "1.0"
         };
 
@@ -27,6 +28,7 @@ namespace Fusca.WebApi
             });
         }
 
+        [ExcludeFromCodeCoverage]
         protected override void ConfigureApiServices(IServiceCollection services)
         {
             services.AddTmdbAdapter(Configuration.SafeGet<TmdbAdapterConfiguration>());
