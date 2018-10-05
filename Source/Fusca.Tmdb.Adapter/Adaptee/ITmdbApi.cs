@@ -1,5 +1,4 @@
 ﻿using Refit;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Fusca.Tmdb.Adapter.Adaptee
@@ -12,9 +11,6 @@ namespace Fusca.Tmdb.Adapter.Adaptee
     internal interface ITmdbApi
     {
         [Get("/search/movie")]
-        Task<TmdbDiscoverResult> GetUpcommingMoviesAsync(
-            [Query] string query,
-            [Query, AliasAs("api_key")] string apiKey,
-            [Query] string language);
+        Task<TmdbSearchMoviesGetResult> SearchMovies([Query] TmdbSearchMoviesGet tmdbSearchMoviesGet);
     }
 }
