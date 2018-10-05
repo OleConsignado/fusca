@@ -16,7 +16,6 @@
   </PropertyGroup>  
   
   <ItemGroup>
-    <PackageReference Include="Ole.OpenApi.AuthorizationDataModel" Version="1.0.10517-CI-20181002-212753" />
     <PackageReference Include="Otc.ComponentModel.Annotations" Version="1.0.1" />
     <PackageReference Include="Otc.DomainBase.Exceptions" Version="2.0.0" />
   </ItemGroup>  
