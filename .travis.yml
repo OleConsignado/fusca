@@ -1,5 +1,6 @@
 language: csharp
 dotnet: 2.1.300-preview2
+mono: none
 
 install: 
 - bash ./cicd.sh install
