@@ -14,8 +14,10 @@ namespace Microsoft.Extensions.DependencyInjection
             if (tmdbAdapterConfiguration == null)
                 throw new ArgumentNullException(nameof(tmdbAdapterConfiguration));
 
+            // Registra a instancia do objeto de configuracoes desta camanda.
             services.AddSingleton(tmdbAdapterConfiguration);
 
+            // Configura os parametros para chamada na TMDb API e registra a interface ITmdbApi.
             services.AddScoped(serviceProvider =>
             {
                 var httpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
@@ -25,6 +27,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 return RestService.For<ITmdbApi>(httpClient);
             });
 
+            // Registra a implementacao do ITmdbAdapter para ser utilizado na camada WebApi.
             services.AddScoped<ITmdbAdapter, TmdbAdapter>();
 
             return services;

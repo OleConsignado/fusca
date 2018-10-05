@@ -1,7 +1,5 @@
 ﻿using Fusca.Domain.Adapters;
-using Fusca.Domain.Exceptions;
 using Fusca.Domain.Models;
-using Fusca.Tmdb.Adapter;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Newtonsoft.Json;
@@ -18,7 +16,7 @@ namespace Fusca.WebApi.Tests.v1
 {
     public class FilmesTests : IClassFixture<HttpFixture<TestsStartup>>
     {
-        private const string apiVersion = "1";
+        private const string apiVersion = "1.0";
         private readonly HttpFixture<TestsStartup> httpFixture;
 
         public FilmesTests(HttpFixture<TestsStartup> httpFixture)
@@ -29,25 +27,17 @@ namespace Fusca.WebApi.Tests.v1
         [Fact]
         public async Task Test_Pesquisa_ParametroInvalido()
         {
-            var expected = new BuscarFilmesCoreException(BuscarFilmesCoreError.ParametrosIncorretos);
-
             var tmdbAdapterMock = new Mock<ITmdbAdapter>();
 
-            // Configura o Mock
-            tmdbAdapterMock
-                .Setup(m => m.GetFilmesAsync(null))
-                .Throws(expected);
-                
             var httpClient = CreateHttpClient(tmdbAdapterMock);
 
-            // Realiza uma requisicao HTTP GET na rota {httpClient.BaseAddress}/filmes (http://localhost/v1/filmes)
+            // Realiza uma requisicao HTTP GET na rota {httpClient.BaseAddress}/filmes
             var response = await httpClient.GetAsync("filmes");
 
             // Verifica se a resposta esta de acordo com o esperado.
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
 
-            // TODO: Avaliar como obter o erro (necessario um DTO?)
-
+            // TODO: Avaliar melhor forma de obter o erro (necessario um DTO?)
             //var responseText = await response.Content.ReadAsStringAsync();
             //var ex = JsonConvert.DeserializeObject<BuscarFilmesCoreException>(responseText);
             //Assert.Equal(BuscarFilmesCoreError.ParametrosIncorretos.Key, ex.Errors.Single().Key);
@@ -57,9 +47,9 @@ namespace Fusca.WebApi.Tests.v1
         public async Task Test_Pesquisa()
         {
             // Objeto que sera utilizado para retorno do Mock
-            var expected = new List<GetFilmesResult>()
+            var expected = new List<FilmesGetResult>()
                 {
-                    new GetFilmesResult()
+                    new FilmesGetResult()
                     {
                         Id = 10447,
                         Descricao = "descricao_teste",
@@ -71,18 +61,18 @@ namespace Fusca.WebApi.Tests.v1
 
             // Configura o Mock
             tmdbAdapterMock
-                .Setup(m => m.GetFilmesAsync(It.IsAny<string>()))
+                .Setup(m => m.GetFilmesAsync(It.IsAny<FilmesGet>()))
                 .ReturnsAsync(expected);
 
             var httpClient = CreateHttpClient(tmdbAdapterMock);
 
-            // Realiza uma requisicao HTTP GET na rota {httpClient.BaseAddress}/filmes?query=teste (http://localhost/v1/filmes?query=teste)
-            var response = await httpClient.GetAsync("filmes?query=teste");
+            // Realiza uma requisicao HTTP GET na rota {httpClient.BaseAddress}/filmes?termoPesquisa=teste&anoLancamento=2000
+            var response = await httpClient.GetAsync("filmes?termoPesquisa=teste&anoLancamento=2000");
 
             // Verifica se a resposta esta de acordo com o esperado.
             Assert.True(response.IsSuccessStatusCode);
             var responseText = await response.Content.ReadAsStringAsync();
-            var filmes = JsonConvert.DeserializeObject<IEnumerable<GetFilmesResult>>(responseText);
+            var filmes = JsonConvert.DeserializeObject<IEnumerable<FilmesGetResult>>(responseText);
             Assert.Contains(filmes, f => f.Id == expected.Single().Id);
         }
 

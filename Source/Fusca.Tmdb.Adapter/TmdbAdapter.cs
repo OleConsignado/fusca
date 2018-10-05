@@ -27,19 +27,22 @@ namespace Fusca.Tmdb.Adapter
             this.typedCache = typedCache ?? throw new ArgumentNullException(nameof(typedCache));
         }
 
-        public async Task<IEnumerable<GetFilmesResult>> GetFilmesAsync(string query)
+        public async Task<IEnumerable<FilmesGetResult>> GetFilmesAsync(FilmesGet filmesGet)
         {
             try
             {
-                var cacheKey = $"filmes::{query}";
+                var cacheKey = $"filmes::{filmesGet.GetHashCode()}";
 
-                if(!typedCache.TryGet(cacheKey, out TmdbDiscoverResult tmdbDiscoverResult))
+                if(!typedCache.TryGet(cacheKey, out TmdbSearchMoviesGetResult tmdbSearchMoviesGetResult))
                 {
-                    tmdbDiscoverResult = await tmdbApi.GetUpcommingMoviesAsync(query, tmdbAdapterConfiguration.TmdbApiKey, tmdbAdapterConfiguration.Idioma);
-                    typedCache.Set(cacheKey, tmdbDiscoverResult, TimeSpan.FromSeconds(tmdbAdapterConfiguration.TempoDeCacheDaPesquisaEmSegundos));
+                    var tmdbSearchMoviesGet = Mapper.Map<TmdbSearchMoviesGet>(filmesGet);
+                    tmdbSearchMoviesGet.ApiKey = tmdbAdapterConfiguration.TmdbApiKey;
+                    tmdbSearchMoviesGet.Language = tmdbAdapterConfiguration.Idioma;
+                    tmdbSearchMoviesGetResult = await tmdbApi.SearchMovies(tmdbSearchMoviesGet);
+                    typedCache.Set(cacheKey, tmdbSearchMoviesGetResult, TimeSpan.FromSeconds(tmdbAdapterConfiguration.TempoDeCacheDaPesquisaEmSegundos));
                 }
 
-                return Mapper.Map<IEnumerable<GetFilmesResult>>(tmdbDiscoverResult.Results);
+                return Mapper.Map<IEnumerable<FilmesGetResult>>(tmdbSearchMoviesGetResult.Results);
             }
             catch (ApiException e)
             {
@@ -48,13 +51,15 @@ namespace Fusca.Tmdb.Adapter
                     case (HttpStatusCode)429: // TooManyRequests
                         throw new BuscarFilmesCoreException(
                             BuscarFilmesCoreError.LimiteDeRequisicoesAtingido);
-
-                    // Parametros incorretos (https://www.themoviedb.org/documentation/api/status-codes)
-                    case (HttpStatusCode)422: 
-                        throw new BuscarFilmesCoreException(
-                            BuscarFilmesCoreError.ParametrosIncorretos);
                 }
 
+                // Qualquer outro codigo de retorno esta sendo considerado como uma situacao nao prevista. 
+                // A excecao sera relancada e caso nao tratada, acarretara em um erro interno. 
+                // Obs.: Deixar essa excecao sem tratamento, a principio nao eh errado, pois eh uma condicao nao prevista, ou seja, desconhecida.
+                // Como este projeto implementa um ponto central de tratamento de erros (por meio das bibliotecas Otc.ExceptionHandler e Otc.Mvc.Filters)
+                // este erro sera devidamente registrado (logs) e um identificador do registro sera fornecido na resposta. 
+                // Note que em ambientes de desenvolvimento, (variavel de ambiente ASPNETCORE_ENVIRONMENT definida como Development) a excecao
+                // sera exposta na resposta, no entanto, em ambientes produtivos, apenas o identificador do log do erro sera fornecido.
                 throw;
             }
         }

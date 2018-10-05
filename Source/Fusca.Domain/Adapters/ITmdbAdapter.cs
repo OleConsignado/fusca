@@ -7,10 +7,11 @@ namespace Fusca.Domain.Adapters
     public interface ITmdbAdapter
     {
         /// <summary>
-        /// 
+        /// Realiza pesquisa em filmes.
         /// </summary>
-        /// <returns>Lista com os filmes mais recentes</returns>
+        /// <param name="filmesGet">Criterios de pesquisa.</param>
+        /// <returns>Lista dos filmes encontrados conforme criterio de pesquisa.</returns>
         /// <exception cref="Exceptions.BuscarFilmesCoreException" />
-        Task<IEnumerable<GetFilmesResult>> GetFilmesAsync(string query);
+        Task<IEnumerable<FilmesGetResult>> GetFilmesAsync(FilmesGet filmesGet);
     }
 }
