@@ -33,7 +33,7 @@ function deploy
 	mkdir $ARTIFACTS_FOLDER
 
 	echo "Copying..."
-	cp -Rvp ../Source/* ./
+	cp -Rvp ../Source/* ./content/
 
 	echo "Packing..."
 	nuget pack *.nuspec -OutputDirectory $ARTIFACTS_FOLDER
