@@ -1,4 +1,4 @@
 apiVersion: v1
-description: Definicoes para opendocumentoapi
-name: opendocumentoapi
+description: Definicoes para fusca
+name: fusca
 version: 0.1.0
