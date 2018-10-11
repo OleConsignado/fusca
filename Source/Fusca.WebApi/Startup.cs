@@ -25,15 +25,19 @@ namespace Fusca.WebApi
             DefaultApiVersion = "1.0"
         };
 
-        public Startup(IConfiguration configuration)
-            : base(configuration)
+        static Startup()
         {
-            Mapper.Reset();
-
             Mapper.Initialize(config =>
             {
                 config.AddProfile<TmdbMapperProfile>();
             });
+        }
+
+
+        public Startup(IConfiguration configuration)
+            : base(configuration)
+        {
+
         }
 
         /// <summary>
