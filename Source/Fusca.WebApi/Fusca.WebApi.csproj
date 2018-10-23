@@ -25,9 +25,9 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="7.0.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.5" />
     <PackageReference Include="Otc.Validations.Helpers" Version="2.0.0" />
-    <PackageReference Include="Otc.AspNetCore.ApiBoot" Version="2.0.2" />
+    <PackageReference Include="Otc.AspNetCore.ApiBoot" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
