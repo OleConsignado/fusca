@@ -7,6 +7,7 @@ metadata:
     chart: {{ .Values.Name | default .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+    revision: "{{ .Release.Revision }}"
 spec: 
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -19,10 +20,11 @@ spec:
         app: {{ .Values.Name | default .Chart.Name }}
         chart: {{ .Values.Name | default .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
         release: {{ .Release.Name }}
-        heritage: {{ .Release.Service }}   
+        heritage: {{ .Release.Service }}
+        revision: "{{ .Release.Revision }}"
     spec:
       containers:
-      - name: {{ .Values.Name | default .Chart.Name }}-rev{{ .Release.Revision }} # A revisao forca a recriacao do pod quando houver implantacao
+      - name: {{ .Values.Name | default .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         ports:
         - containerPort: 80
