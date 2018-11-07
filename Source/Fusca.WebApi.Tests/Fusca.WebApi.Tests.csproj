@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="Moq" Version="4.10.0" />
-    <PackageReference Include="Otc.AspNetCore.ApiBoot.TestHost" Version="2.0.3" />
+    <PackageReference Include="Otc.AspNetCore.ApiBoot.TestHost" Version="2.0.4" />
     <PackageReference Include="xunit" Version="2.3.0-beta5-build3769" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.0-beta5-build3769">
       <PrivateAssets>all</PrivateAssets>
