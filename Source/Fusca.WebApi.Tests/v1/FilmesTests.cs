@@ -84,7 +84,7 @@ namespace Fusca.WebApi.Tests.v1
                 .CreateServer(services =>
                 {
                     // O TestsStartup.ConfigureApiServices foi sobreescrito
-                    // para prevenir o registro das dependencias da API (neste caso, a camada Fusca.Tmdb.Adapter).
+                    // para prevenir o registro das dependencias da API (neste caso, a camada Fusca.TmdbAdapter).
                     // Aqui registramos os Mocks como dependencias para que os testes possam ser executados
                     // sem dependencias externas.
 

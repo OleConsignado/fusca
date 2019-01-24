@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Fusca.Domain.Models;
-using Fusca.Tmdb.Adapter.Adaptee;
+using Fusca.TmdbAdapter.Clients;
 
-namespace Fusca.Tmdb.Adapter
+namespace Fusca.TmdbAdapter
 {
     public class TmdbMapperProfile : Profile
     {

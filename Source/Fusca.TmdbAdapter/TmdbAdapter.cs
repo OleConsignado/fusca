@@ -2,7 +2,7 @@
 using Fusca.Domain.Adapters;
 using Fusca.Domain.Exceptions;
 using Fusca.Domain.Models;
-using Fusca.Tmdb.Adapter.Adaptee;
+using Fusca.TmdbAdapter.Clients;
 using Otc.Caching.Abstractions;
 using Refit;
 using System;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Fusca.Tmdb.Adapter
+namespace Fusca.TmdbAdapter
 {
     internal class TmdbAdapter : ITmdbAdapter
     {
