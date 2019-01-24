@@ -2,7 +2,7 @@
 using Fusca.Domain.Adapters;
 using Fusca.Domain.Exceptions;
 using Fusca.Domain.Models;
-using Fusca.TmdbAdapter.Adaptee;
+using Fusca.TmdbAdapter.Clients;
 using Otc.Caching.Abstractions;
 using Refit;
 using System;

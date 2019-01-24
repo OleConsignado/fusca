@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Fusca.Domain.Models;
-using Fusca.TmdbAdapter.Adaptee;
+using Fusca.TmdbAdapter.Clients;
 
 namespace Fusca.TmdbAdapter
 {

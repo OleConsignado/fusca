@@ -1,6 +1,6 @@
 ﻿using Fusca.Domain.Adapters;
 using Fusca.TmdbAdapter;
-using Fusca.TmdbAdapter.Adaptee;
+using Fusca.TmdbAdapter.Clients;
 using Otc.Networking.Http.Client.Abstractions;
 using Refit;
 using System;

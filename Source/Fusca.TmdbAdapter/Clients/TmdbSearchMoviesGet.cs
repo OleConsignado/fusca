@@ -1,6 +1,6 @@
 ﻿using Refit;
 
-namespace Fusca.TmdbAdapter.Adaptee
+namespace Fusca.TmdbAdapter.Clients
 {
     /// <summary>
     /// Modelo do entrada para a rota /search/movie do TMDb API (https://developers.themoviedb.org/3/search/search-movies)
