@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Fusca.Tmdb.Adapter;
+using Fusca.TmdbAdapter;
 using Otc.AspNetCore.ApiBoot;
 using Otc.Extensions.Configuration;
 using System.Diagnostics.CodeAnalysis;

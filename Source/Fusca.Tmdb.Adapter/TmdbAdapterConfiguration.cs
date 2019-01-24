@@ -1,6 +1,6 @@
 ﻿using Otc.ComponentModel.DataAnnotations;
 
-namespace Fusca.Tmdb.Adapter
+namespace Fusca.TmdbAdapter
 {
     public class TmdbAdapterConfiguration
     {

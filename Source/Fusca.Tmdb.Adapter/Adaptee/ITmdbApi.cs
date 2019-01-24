@@ -1,7 +1,7 @@
 ﻿using Refit;
 using System.Threading.Tasks;
 
-namespace Fusca.Tmdb.Adapter.Adaptee
+namespace Fusca.TmdbAdapter.Adaptee
 {
     /// <summary>
     /// Esta interface representa o cliente da API TMDb. 

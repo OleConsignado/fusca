@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Fusca.Tmdb.Adapter\Fusca.Tmdb.Adapter.csproj" />
+    <ProjectReference Include="..\Fusca.TmdbAdapter\Fusca.TmdbAdapter.csproj" />
     <ProjectReference Include="..\Fusca.Domain\Fusca.Domain.csproj" />
   </ItemGroup>
 
