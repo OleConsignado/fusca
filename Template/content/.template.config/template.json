@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Ole Consignado",
-  "classifications": [ "WebApi" ],
+  "classifications": [ "WebAPI" ],
   "identity": "Fusca",
   "name": "Fusca",
   "shortName": "fusca",
