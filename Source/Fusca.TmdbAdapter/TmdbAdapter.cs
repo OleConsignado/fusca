@@ -31,7 +31,7 @@ namespace Fusca.TmdbAdapter
         {
             try
             {
-                var cacheKey = $"filmes::{filmesGet.GetHashCode()}";
+                var cacheKey = $"filmes::{filmesGet.TermoPesquisa}::{filmesGet.AnoLancamento}::{tmdbAdapterConfiguration.Idioma}";
 
                 if(!typedCache.TryGet(cacheKey, out TmdbSearchMoviesGetResult tmdbSearchMoviesGetResult))
                 {
