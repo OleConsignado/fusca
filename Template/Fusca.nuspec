@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Fusca</id>
-        <version>1.1.1</version>
+        <version>1.1.2</version>
         <description>WebApi project template.</description>
         <authors>Ole Consignado</authors>
         <packageTypes>
