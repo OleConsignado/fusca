@@ -3,7 +3,8 @@
 namespace Fusca.TmdbAdapter.Clients
 {
     /// <summary>
-    /// Modelo do entrada para a rota /search/movie do TMDb API (https://developers.themoviedb.org/3/search/search-movies)
+    /// Modelo do entrada para a rota /search/movie do TMDb API 
+    /// (https://developers.themoviedb.org/3/search/search-movies)
     /// <para>
     /// Este modelo representa exatamente os parametros para requisicoes na rota search/movie API TMDb e
     /// eh utilizado como parametro de entrada para o metodo <see cref="ITmdbApi.SearchMovies"/>.
