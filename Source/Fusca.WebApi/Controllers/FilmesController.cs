@@ -20,8 +20,10 @@ namespace Fusca.WebApi.Controllers
 
         public FilmesController(ITmdbAdapter tmdbAdapter, ILoggerFactory loggerFactory)
         {
-            this.tmdbAdapter = tmdbAdapter ?? throw new ArgumentNullException(nameof(tmdbAdapter));
-            logger = loggerFactory?.CreateLogger<FilmesController>() ?? throw new ArgumentNullException(nameof(loggerFactory));
+            this.tmdbAdapter = tmdbAdapter ??
+                throw new ArgumentNullException(nameof(tmdbAdapter));
+            logger = loggerFactory?.CreateLogger<FilmesController>() ??
+                throw new ArgumentNullException(nameof(loggerFactory));
         }
 
         /// <summary>

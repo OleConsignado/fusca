@@ -13,7 +13,8 @@ namespace Fusca.WebApi
     /// <para>
     /// A base <see cref="ApiBootStartup"/> implementa uma serie de requisitos que consideramos
     /// necessarios para qualquer API, como Log, Swagger, Authorizacao, Versionamento e mais.
-    /// Veja https://github.com/OleConsignado/otc-aspnetcore-apiboot para maiores detalhes (talvez a documentacao ainda esteja em construcao).
+    /// Veja https://github.com/OleConsignado/otc-aspnetcore-apiboot para maiores detalhes (talvez 
+    /// a documentacao ainda esteja em construcao).
     /// </para>
     /// </summary>
     public class Startup : ApiBootStartup

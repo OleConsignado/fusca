@@ -9,7 +9,8 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class TmdbAdapterServiceCollectionExtensions
     {
-        public static IServiceCollection AddTmdbAdapter(this IServiceCollection services, TmdbAdapterConfiguration tmdbAdapterConfiguration)
+        public static IServiceCollection AddTmdbAdapter(this IServiceCollection services,
+            TmdbAdapterConfiguration tmdbAdapterConfiguration)
         {
             if (tmdbAdapterConfiguration == null)
                 throw new ArgumentNullException(nameof(tmdbAdapterConfiguration));
